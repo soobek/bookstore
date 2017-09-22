@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: SQL_ASCII
+  host: localhost
+  pool: 5
+  username: ubuntu
+  password: 12345
+
+development:
+  <<: *default
+  database: bookstore_development
+
+test:
+  <<: *default
+  database: bookstore_test
+
+production:
+  <<: *default
+  database: bookstore_production
+
