@@ -53,4 +53,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
+	# RailRoady generates Rails 3/4/5 model (ActiveRecord, Mongoid, Datamapper) and controller UML diagrams as cross-platform .svg files, as well as in the DOT language.
+group :development, :test do
+    gem 'railroady'
+end
 

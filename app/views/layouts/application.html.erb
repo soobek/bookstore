@@ -8,16 +8,23 @@
     <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+<% if notice %>
+  <p class="alert alert-success" style="margin-top: 1em;"><%= notice %></p>
+<% end %>
+<% if alert %>
+  <p class="alert alert-danger" style="margin-top: 1em;"><%= alert %></p>
+<% end %>
 
-<p class="alert"><%= alert %></p>
+<!-- <p class="alert"><%= alert %></p>
 
     <% if !flash[:notice].blank? %>
         <div class="alert alert-success" style="text-align: center;">
             <%= flash[:notice] %>
           </div>
     <% end %>
-
+-->
 <%= yield %>
-
+</div>
 </body>
 </html>

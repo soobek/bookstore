@@ -1,16 +1,34 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<% flash[:error] = resource.errors.full_messages %>
+ <% if !flash[:error].blank? %>
+  <div class="alert alert-danger" style="text-align: left; margin-top: 1em;">
+   <% flash[:error].each do |error| %>
+    <p>WARNING - <%= error %></p>
+   <% end %>
   </div>
+ <% end %>
+<div class="container">  
+  <div class="row" style="border-style: solid; border-color: lightgray; border-width: 1px; padding: 0.5em;">
+    <div class="col-lg-4" style="background-color:lightgray; padding: 1em;">
+	<h2>Forgot your password?</h2>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+	<!--  <%= devise_error_messages! %> -->
+
+	  <div class="field">
+	    <%= f.label :email %><br />
+	    <%= f.email_field :email, autofocus: true %>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit "Send me reset password instructions" %>
+	  </div>
+	<% end %>
+	</br>
+	<%= render "devise/shared/links" %>
+	</div>
+
+    <div class="col-lg-8" style="background-color:lightgray; padding: 1em;">
+      <div style="text-align: center;"> <%= image_tag('books-2463779_640.jpg', :alt => 'Bookstore') %></div>
+    </div>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>
