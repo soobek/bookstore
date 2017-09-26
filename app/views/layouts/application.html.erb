@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Demo</title>
+    <title>BOOKSTORE</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
     <%= csrf_meta_tags %>
 </head>
 <body>
 
-<% flash.each do |key, value| %>
-<div class="alert alert-<%= key %> alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <%= value %>
-</div>
-<% end %>
+<p class="alert"><%= alert %></p>
 
-<%= link_to 'Login', new_user_session_path %>
+    <% if !flash[:notice].blank? %>
+        <div class="alert alert-success" style="text-align: center;">
+            <%= flash[:notice] %>
+          </div>
+    <% end %>
 
 <%= yield %>
 

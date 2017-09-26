@@ -277,5 +277,9 @@ Devise.setup do |config|
   
   
   
-  #config.mailer_sender = ENV['SENDMAIL_USERNAME']
+  config.mailer_sender = ENV['SENDMAIL_USERNAME']
+
+  #config.mailer_sender = 'sobek.wielki@gmail.com'
+  # Configure the class responsible to send e-mails.
+  #config.mailer = "Mailer"
 end
