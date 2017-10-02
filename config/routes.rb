@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+
+      devise_for :users, controllers: {
+        sessions: 'users/sessions',
+        registrations: 'registrations'
+      }
+
+
+  match ':controller(/:action(/:id))', :via => [:get, :post]
+
+  #devise_for :users
   get 'welcome/index'
   root 'welcome#index'
 

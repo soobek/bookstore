@@ -1,0 +1,52 @@
+
+<h2>Edit <%= @user.email %></h2>
+
+      <%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+        
+      <div class="field">
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name %>
+        </div>
+
+        <div class="field">
+          <%= f.label :nick %><br />
+          <%= f.text_field :nick %>
+        </div>
+
+        <div class="field">
+          <%= f.label :user_role %><br />
+          <%= f.select :user_role, User.user_roles.keys, User.user_roles %>
+        </div>
+
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+<!--        <hr>
+        <div class="field">
+          <%= f.label :password %> <br><i>(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+          <% if @minimum_password_length %>
+            <br />
+            <em><%= @minimum_password_length %> characters minimum</em>
+          <% end %>
+        </div>
+        <hr>
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
+        <hr>
+ -->       
+        </br>
+        <div class="actions">
+          <%= f.submit "Update", :class => 'btn btn-warning btn' %>
+        </div>
+      <% end %>
