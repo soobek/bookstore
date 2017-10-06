@@ -16,12 +16,6 @@
   <p class="alert alert-danger" style="margin-top: 1em;"><%= alert %></p>
 <% end %>
 
-<div class="container">
-<% if user_signed_in? %>
-<p>Hello <%= current_user.first_name %>!</p>
-<p>Account type: <%= current_user.user_role.upcase %></p>
-<% end %>
-</div>
 <%= yield %>
 </div>
 </body>

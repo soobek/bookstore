@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+layout 'admin'
+
+    before_action :authenticate_user!, :is_admin?
+
   def index
   	@user = User.all
   end
@@ -23,9 +27,17 @@ class UsersController < ApplicationController
       render("edit")
     end
   end
+
 private
   def user_params
   	params.require(:user).permit(:first_name, :last_name, :nick, :user_role, :email)
+  end
+
+  def is_admin?
+    unless current_user.user_role == "admin"
+      flash[:alert] = "You don't have admin permition."
+      redirect_to :controller => "welcome", :action => "index"  
+    end
   end
 
 end

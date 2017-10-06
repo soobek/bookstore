@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   
 
-      devise_for :users, controllers: {
-        sessions: 'users/sessions',
-        registrations: 'registrations'
-      }
+  get 'categories/index'
+
+  get 'categories/new'
+
+  get 'categories/edit'
+
+  get 'categories/delete'
+
+      devise_for :users, controllers: {sessions: 'users/sessions'}
 
 
   match ':controller(/:action(/:id))', :via => [:get, :post]
