@@ -1,0 +1,38 @@
+<div class="container">
+<h1>User Panel</h1><h4>Witaj <%= current_user.nick.upcase %></h4>
+
+<p style="text-align: right;"><%= @book.size %> BOOKS</p>
+<p><%= link_to("New",  {:action => 'new_book'}, :class => 'btn btn-xs btn-success') %>
+</p>
+<table class="table">
+	<tr>
+	<th>Image</th>
+	<th>ID</th>
+	<th>Category</th>
+	<th>Title</th>
+	<th>Author</th>
+	<th>Description</th>
+	<th>Pages</th>
+	<th>Text</th>
+
+	</tr>
+	<% @book.each do |u| %>
+	<tr>	
+		<td><%= image_tag(u.picture.url, :class => "featurette-image img-responsive")%></td>
+		<td><%= u.id %></td>
+		<td><%= u.category.name %></td>
+		<td><%= u.title %></td>
+		<td><%= u.user.nick %></td>
+		<td><%= u.description %></td>
+		<td><%= u.pages %></td>
+		<td><%= u.text %></td>
+		<td><%= link_to("Edit",  {:action => 'edit_book', :id => u.id}, :class => 'btn btn-xs btn-primary') %>
+		<%= link_to("Delete",  {:action => 'delete_book', :id => u.id}, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-xs btn-danger') %>
+		</td>
+	</tr>
+	<%end%>
+</table>
+
+
+
+</div>

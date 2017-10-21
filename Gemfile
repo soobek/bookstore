@@ -10,6 +10,8 @@ gem 'actionpack', '~> 5.1', '>= 5.1.3'
 
 gem 'activerecord', '~> 5.1', '>= 5.1.3'
 
+gem 'paperclip', '~> 5.1', '>= 5.1.0'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1', '>= 5.1.3'
 # Use sqlite3 as the database for Active Record

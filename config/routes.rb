@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
   
 
+  get 'user_panel/index'
+
+  get 'user_panel/books'
+
+  get 'books/index'
+
+  get 'books/new'
+
+  get 'books/edit'
+
+  get 'books/delete'
+
   get 'categories/index'
 
   get 'categories/new'
