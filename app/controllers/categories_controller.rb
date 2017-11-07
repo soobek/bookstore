@@ -2,7 +2,6 @@ class CategoriesController < ApplicationController
 
 layout 'admin'
 
-
 		before_action :authenticate_user!, :is_admin?
 
   def index
@@ -10,7 +9,6 @@ layout 'admin'
   end
 
   def new
-
   end
 
   def create
@@ -43,8 +41,7 @@ layout 'admin'
       flash[:notice] = "Category deleted."
       redirect_to(:action => 'index')
   end
-  
-  
+   
  private
   def category_params
     params.require(:category).permit(:name)

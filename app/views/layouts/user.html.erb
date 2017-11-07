@@ -12,8 +12,7 @@
 					<div class="container" style="margin: 1em;">
 					
 					<div  style="text-align: center; background-color: gray; padding: 0.5em;">
-						<a style="position: left;"><%= link_to("Users", {:controller => 'users', :action => 'index'}, :class => 'btn btn-info')%>    
-						<%= link_to("Categories", {:controller => 'categories', :action => 'index'}, :class => 'btn btn-info')%>
+						<a style="position: left;">
             <%= link_to("Books", {:controller => 'books', :action => 'index'}, :class => 'btn btn-info')%>        
             </a> | <a style="color: white;">Hello <%= current_user.nick.upcase %>!</a> | <a style="position: right;">
             <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-info'%>

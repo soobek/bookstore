@@ -17,12 +17,11 @@
           <%= f.label :nick %><br />
           <%= f.text_field :nick %>
         </div>
-
+        
         <div class="field">
           <%= f.label :user_role %><br />
           <%= f.select :user_role, User.user_roles.keys, User.user_roles %>
         </div>
-
 
         <div class="field">
           <%= f.label :email %><br />

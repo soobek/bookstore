@@ -8,6 +8,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
-
   enum user_role: [:admin, :user]
+
+  validates :nick,
+  	:presence => {:in => true, :message => " can't be empty!"},
+  	:length => {:within => 4..25, :message => " length should be between 4 and 25 characters!"}
 end
