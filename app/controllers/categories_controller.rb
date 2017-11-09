@@ -1,14 +1,14 @@
 class CategoriesController < ApplicationController
+  layout 'admin'
 
-layout 'admin'
-
-		before_action :authenticate_user!, :is_admin?
+  before_action :authenticate_user!, :is_admin?
 
   def index
   	@category = Category.order('name ASC')
   end
 
   def new
+    @category = Category.new()
   end
 
   def create
@@ -23,25 +23,24 @@ layout 'admin'
 
   def edit
    @category = Category.find(params[:id])
-   
+
   end
   def update
     @category = Category.find(params[:id])
-      if @category.update_attributes(category_params)
+    if @category.update_attributes(category_params)
       flash[:notice] = "Category updated."
       redirect_to(:action => 'index')
-      else
-      
+    else
       render('edit')
-      end
+    end
   end
 
-  def delete
-  				category = Category.find(params[:id]).destroy
-      flash[:notice] = "Category deleted."
-      redirect_to(:action => 'index')
+  def destroy
+  	category = Category.find(params[:id]).destroy
+    flash[:notice] = "Category deleted."
+    redirect_to(:action => 'index')
   end
-   
+
  private
   def category_params
     params.require(:category).permit(:name)
@@ -50,7 +49,7 @@ layout 'admin'
   def is_admin?
   	unless current_user.user_role == "admin"
   		flash[:alert] = "You don't have admin permition."
-  		redirect_to :controller => "welcome", :action => "index"	
+  		redirect_to :controller => "welcome", :action => "index"
   	end
   end
 

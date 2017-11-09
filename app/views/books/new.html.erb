@@ -1,7 +1,7 @@
 <div class="hero-unit">
 <h1>New Book</h1>
 
-<%= form_for(:book, :url => {:action => 'create', :user_id => current_user.id}) do |f| %>
+<%= form_for(@book) do |f| %>
 
 <%= render(:partial => "form", :locals => {:f => f}) %>
 

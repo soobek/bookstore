@@ -3,8 +3,9 @@ default: &default
   encoding: SQL_ASCII
   host: localhost
   pool: 5
-  username: ubuntu
-  password: 12345
+  username: koza
+  password: koza
+  template: template0
 
 development:
   <<: *default

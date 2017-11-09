@@ -36,7 +36,7 @@ private
   def is_admin?
     unless current_user.user_role == "admin"
       flash[:alert] = "You don't have admin permition."
-      redirect_to :controller => "welcome", :action => "index"  
+      redirect_to :controller => "welcome", :action => "index"
     end
   end
 

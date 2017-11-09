@@ -1,32 +1,12 @@
 Rails.application.routes.draw do
-  
-
   get 'user_panel/index'
+  get 'admin_panel/index'
 
-  get 'user_panel/books'
+  resources :books, only: [:index, :new, :create, :edit, :update, :destroy]
+  resources :categories, only: [:index, :new, :create, :edit, :update, :destroy]
 
-  get 'books/index'
+  devise_for :users
 
-  get 'books/new'
-
-  get 'books/edit'
-
-  get 'books/delete'
-
-  get 'categories/index'
-
-  get 'categories/new'
-
-  get 'categories/edit'
-
-  get 'categories/delete'
-
-      devise_for :users, controllers: {sessions: 'users/sessions'}
-
-
-  match ':controller(/:action(/:id))', :via => [:get, :post]
-
-  #devise_for :users
   get 'welcome/index'
   root 'welcome#index'
 
