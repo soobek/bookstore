@@ -9,26 +9,20 @@
 </head>
 <body>
  <!-- menu -->
-					<div class="container" style="margin: 1em;">
-					
-					<div  style="text-align: center; background-color: gray; padding: 0.5em;">
-						<a style="position: left;"><%= link_to("Users", {:controller => 'users', :action => 'index'}, :class => 'btn btn-info')%>    
-						<%= link_to("Categories", {:controller => 'categories', :action => 'index'}, :class => 'btn btn-info')%>
-            <%= link_to("Books", {:controller => 'books', :action => 'index'}, :class => 'btn btn-info')%>        
-            </a> | <a style="color: white;">Hello <%= current_user.nick.upcase %>!</a> | <a style="position: right;">
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-info'%>
-            <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'btn btn-danger'  %> </a>
-          </div>       
-      		</div>
-
-
-
+	<div class="menu">
+		<a><%= link_to("Users", {:controller => 'users', :action => 'index'}, :class => 'btn btn-info')%>    
+		<%= link_to("Categories", {:controller => 'categories', :action => 'index'}, :class => 'btn btn-info')%>
+    <%= link_to("Books", {:controller => 'books', :action => 'index'}, :class => 'btn btn-info')%>        
+    </a> | <a class="user_nick">Hello <%= current_user.nick.upcase %>!</a> | 
+    <a><%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-info'%>
+    <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'btn btn-danger'  %> </a>
+  </div>       
 <div class="container">
 <% if notice %>
-  <p class="alert alert-success" style="margin-top: 1em;"><%= notice %></p>
+  <p class="alert alert-success"><%= notice %></p>
 <% end %>
 <% if alert %>
-  <p class="alert alert-danger" style="margin-top: 1em;"><%= alert %></p>
+  <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
 <%= yield %>

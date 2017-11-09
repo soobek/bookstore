@@ -5,7 +5,7 @@ layout 'admin'
   before_action :authenticate_user!, :is_admin?
 
   def index
-  	@user = User.all
+  	@users = User.all
   end
 
   def edit

@@ -1,10 +1,10 @@
 <div class="container">
-<h1>User Panel</h1><h4>Witaj <%= current_user.nick.upcase %></h4>
+<h1>User Panel</h1>
 
 <% if current_user.user_role == "admin" %>
-<p style="text-align: right;"><%= @books.size %> BOOKS</p>
+<p class="counter"><%= @books.size %> BOOKS</p>
 <%else%>
-<p style="text-align: right;"><%= @user_books.size %> BOOKS</p>
+<p class="counter"><%= @user_books.size %> BOOKS</p>
 <%end%>
 
 <p><%= link_to("New",  {:action => 'new'}, :class => 'btn btn-xs btn-success') %>

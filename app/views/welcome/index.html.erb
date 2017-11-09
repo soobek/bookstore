@@ -1,7 +1,7 @@
-<div class="container" style="background-image: url(<%= asset_path 'books-2463779_640.jpg' %>); position: fixed; left: 0; min-width: 100%; min-height: 100%;">
-	<div class="jumbotron" style="margin-top: 15%;">
-		<h1 class="display-4" align="center">Welcome to BOOKSTORE!</h1>
-		<div class="action" align="center">
+<div class="main_page">
+	<div class="jumbotron">
+		<h1 class="display-4">Welcome to BOOKSTORE!</h1>
+		<div class="action">
 			<% if user_signed_in? %>
 		  		Logged in as <strong><%= current_user.email %></strong>.
 		  		<% if current_user.user_role == "admin" %>

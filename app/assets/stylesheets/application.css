@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+.menu {
+	margin-left: 1em;
+	margin-right: 1em;
+	width: auto;
+	text-align: center;
+	background-color: gray;
+	padding: 0.5em;
+}
+.user_nick {
+	color: white!important;
+	font-weight: bold;
+}
+.alert {
+	margin-top: 1em;
+}
+.main_page {
+	background-image: url("books-2463779_640.jpg");
+	position: fixed;
+	left: 0;
+	min-width: 100%;
+	min-height: 100%;
+}
+.jumbotron {
+	margin-top: 15%;
+	text-align: center;
+}
+.buttons_down {
+	text-align: center;
+}
+.counter {
+	text-align: right;
+}

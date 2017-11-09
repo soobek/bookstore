@@ -1,11 +1,11 @@
 <div class="hero-unit">
-<h1>Edit category:</h1><h2 style="text-align:center;"><%= @category.name %></h2>
+<h1>Edit category:</h1>
 
 <%= form_for(:category, :url => {:action => 'update', :id => @category.id}) do |f| %>
 
 <%= render(:partial => "form", :locals => {:f => f}) %>
 
-<div style="text-align: center;">
+<div class="buttons_down">
 	<%= link_to("Back", {:action => 'index'}, :class => 'btn btn-warning')%>
 	<%= submit_tag("Update", :class => 'btn  btn-primary') %>
 </div>
