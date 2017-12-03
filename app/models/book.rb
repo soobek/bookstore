@@ -3,7 +3,7 @@ class Book < ApplicationRecord
 		belongs_to :category
     
 		has_attached_file :picture,
-					 :styles => {:medium => "600x600>", :thumb => "200x200>" }
+					 :styles => {:medium => "300x300>", :thumb => "50x50>" }
 	
 	validates :title,
   	:presence => {:in => true, :message => " can't be empty!"},

@@ -10,7 +10,7 @@
 <body>
  <!-- menu -->
   <div class="menu">
-    <a><%= link_to("My Books", {:controller => 'books', :action => 'index'}, :class => 'btn btn-info')%>        
+    <a><%= link_to("My Books", books_path, :class => 'btn btn-info')%>        
     </a> | <a class="user_nick">Hello <%= current_user.nick.upcase %>!</a> | 
     <a><%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-info'%>
     <%= link_to 'Logout', destroy_user_session_path, method: :delete, :class => 'btn btn-danger'  %> </a>

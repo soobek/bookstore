@@ -1,6 +1,6 @@
 <h1>Categories</h1>
 <p class="counter"><%= @category.size %> CATEGORIES</p>
-<p><%= link_to("New",  {:action => 'new'}, :class => 'btn btn-xs btn-success') %>
+<p><%= link_to("New", new_category_path, :class => 'btn btn-xs btn-success') %>
 </p>
 <table class="table">
 	<tr>
@@ -12,8 +12,8 @@
 	<tr>	
 		<td><%= u.id %></td>
 		<td><%= u.name %></td>
-		<td><%= link_to("Edit",  {:action => 'edit', :id => u.id}, :class => 'btn btn-xs btn-primary') %>
-		<%= link_to("Delete",  {:action => 'delete', :id => u.id}, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-xs btn-danger') %>
+		<td><%= link_to("Edit", edit_category_path(u), :class => 'btn btn-xs btn-primary') %>
+		<%= link_to("Delete", category_path(u), method: :delete, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-xs btn-danger') %>
 		</td>
 	</tr>
 	<%end%>

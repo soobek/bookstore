@@ -19,8 +19,8 @@
 		<td><%=	u.email	%></td>
 		<td><%=	u.nick	%></td>
 		<td><%=	u.user_role	%></td>
-		<td><%= link_to("Edit",  {:action => 'edit', :id => u.id}, :class => 'btn btn-xs btn-primary') %>
-		<%= link_to("Delete",  {:action => 'delete', :id => u.id}, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-xs btn-danger') %>
+		<td><%= link_to("Edit", edit_user_path(u), :class => 'btn btn-xs btn-primary') %>
+		<%= link_to("Delete", user_path(u), method: :delete, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-xs btn-danger') %>
 		</td>
 	</tr>
 	<%end%>

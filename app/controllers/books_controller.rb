@@ -1,14 +1,8 @@
 class BooksController < ApplicationController
 
-layout :layout_check
+layout 'admin'
 
-	def layout_check
-		if current_user.user_role == "admin"
-			"admin"
-		else
-			"user"
-		end
-	end
+  before_action :authenticate_user!
 
   def index
   	@books = Book.order('title ASC')
@@ -24,7 +18,7 @@ layout :layout_check
   	@book = current_user.books.new(book_params) # include current_user
     if @book.save
       flash[:notice] = "Book created."
-      redirect_to(:action => 'index', :user_id => current_user.id)
+      redirect_to new_book_path, :user_id => current_user.id
     else
     	flash[:alert] = @book.errors.full_messages.to_sentence
     	@book = Book.new()
@@ -43,7 +37,7 @@ layout :layout_check
     @book = Book.find(params[:id])
     if @book.update_attributes(book_params)
       flash[:notice] = "Book updated."
-      redirect_to(:action => 'index')
+      redirect_to books_path
     else
     	flash[:alert] = @book.errors.full_messages.to_sentence
     	@book = Book.find(params[:id])
@@ -52,7 +46,7 @@ layout :layout_check
     end
   end
 
-  def delete
+  def destroy
   		book = Book.find(params[:id]).destroy
       flash[:notice] = "Book deleted."
       redirect_to(:action => 'index')
@@ -63,4 +57,5 @@ private
     params.require(:book).permit(:title, :description, :pages, :user_id, :category_id, :text, :picture)
   end
 
+  
 end

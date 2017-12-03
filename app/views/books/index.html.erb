@@ -7,7 +7,7 @@
 <p class="counter"><%= @user_books.size %> BOOKS</p>
 <%end%>
 
-<p><%= link_to("New",  {:action => 'new'}, :class => 'btn btn-xs btn-success') %>
+<p><%= link_to("New", new_book_path, :class => 'btn btn-xs btn-success') %>
 </p>
 <table class="table">
 	<tr>
@@ -22,38 +22,15 @@
 
 </tr>
 	<% if current_user.user_role == "admin" %>
-	<% @books.each do |u| %>
-	<tr>	
-		<td><%= image_tag(u.picture.url, :class => "featurette-image img-responsive")%></td>
-		<td><%= u.id %></td>
-		<td><%= u.category.name %></td>
-		<td><%= u.title %></td>
-		<td><%= u.user.nick %></td>
-		<td><%= u.description %></td>
-		<td><%= u.pages %></td>
-		<td><%= u.text %></td>
-		<td><%= link_to("Edit",  {:action => 'edit', :id => u.id}, :class => 'btn btn-xs btn-primary') %>
-		<%= link_to("Delete",  {:action => 'delete', :id => u.id}, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-xs btn-danger') %>
-		</td>
-	</tr>
-	<%end%>
+		<% @books.each do |u| %>
+		<%= render "form1",u: u %>
+		<%end%>
 	<%else%>
-	<% @user_books.each do |u| %>
-	<tr>	
-		<td><%= image_tag(u.picture.url, :class => "featurette-image img-responsive")%></td>
-		<td><%= u.id %></td>
-		<td><%= u.category.name %></td>
-		<td><%= u.title %></td>
-		<td><%= u.user.nick %></td>
-		<td><%= u.description %></td>
-		<td><%= u.pages %></td>
-		<td><%= u.text %></td>
-		<td><%= link_to("Edit",  {:action => 'edit', :id => u.id}, :class => 'btn btn-xs btn-primary') %>
-		<%= link_to("Delete",  {:action => 'delete', :id => u.id}, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-xs btn-danger') %>
-		</td>
-	</tr>
-	<%end%>
+		<% @user_books.each do |u| %>
+		<%= render "form1",u: u %>
+		<%end%>
 	<%end%>
 </table>
 
 </div>
+

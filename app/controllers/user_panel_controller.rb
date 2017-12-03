@@ -1,6 +1,8 @@
 class UserPanelController < ApplicationController
 
-layout "user"
+layout 'admin'
+
+  before_action :authenticate_user!
 
   def index
   	@books = current_user.books.order('title ASC')
