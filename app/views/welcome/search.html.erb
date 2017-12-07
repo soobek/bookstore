@@ -1,0 +1,57 @@
+<div class="main_page">
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to BOOKSTORE!</h1>
+    <div class="action">
+      <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <% if current_user.user_role == "admin" %>
+          <%= link_to("Admin Panel", admin_panel_index_path, :class => 'btn btn-warning')%>
+          <% else %>
+          <%= link_to("Your Acount", user_panel_index_path, :class => 'btn btn-warning')%>
+          <% end %> |
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'btn btn-primary' %> |
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'btn btn-danger'  %>
+      <% else %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'btn btn-primary'  %> |
+          <%= link_to "Log in", new_user_session_path, :class => 'btn btn-success'  %>
+      <% end %>
+    </div>
+  </div>
+  <div class="jumbotron">
+
+<p><%= link_to("New", new_book_path, :class => 'btn btn-xs btn-success') %>
+</p>
+
+<%= form_tag("/search", method: "get") do %>
+  <%= label_tag(:text, "Search for:") %>
+  <%= text_field_tag(:text) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+
+  <table class="table">
+      <tr>
+        <th>Image</th>
+        <th>ID</th>
+        <th>Category</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Description</th>
+        <th>Pages</th>
+        <th>Text</th>
+      </tr>
+      <% @books.each do |u| %> 
+      <tr>
+        <td><%= image_tag(u.picture.url, :class => "featurette-image img-responsive")%><%= link_to("download", u.bookfile.url, :class => 'btn btn-xs btn-warning')  if u.bookfile? %></td>
+        <td><%= u.id %></td>
+        <td><%= u.category.name %></td>
+        <td><%= u.title %></td>
+        <td><%= u.user.nick %></td>
+        <td><%= u.description %></td>
+        <td><%= u.pages %></td>
+        <td><%= u.text %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

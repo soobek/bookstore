@@ -31,13 +31,13 @@
 }
 .main_page {
 	background-image: url("books-2463779_640.jpg");
-	position: fixed;
+	position: absolute;
 	left: 0;
 	min-width: 100%;
 	min-height: 100%;
 }
 .jumbotron {
-	margin-top: 15%;
+	margin-top: 5%;
 	text-align: center;
 }
 .buttons_down {
@@ -45,4 +45,11 @@
 }
 .counter {
 	text-align: right;
+}
+.featurette-image {
+	max-width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 2px;
+	float: : center;
 }

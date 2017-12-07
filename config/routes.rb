@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :user_panel, only: [:index]
   resources :admin_panel, only: [:index]
 
+  get 'welcome/search'
   get 'welcome/index'
   root 'welcome#index'
 

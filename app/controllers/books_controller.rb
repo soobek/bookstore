@@ -5,8 +5,9 @@ layout 'admin'
   before_action :authenticate_user!
 
   def index
-  	@books = Book.order('title ASC')
-  	@user_books = current_user.books.order('title ASC')
+  	@books = Book.search(params[:search])
+    #@books = Book.order('title ASC')
+  	@user_books = current_user.books.search(params[:search])
   end
 
   def new
@@ -54,7 +55,7 @@ layout 'admin'
 
 private
   def book_params
-    params.require(:book).permit(:title, :description, :pages, :user_id, :category_id, :text, :picture)
+    params.require(:book).permit(:title, :description, :pages, :user_id, :category_id, :text, :picture, :bookfile)
   end
 
   

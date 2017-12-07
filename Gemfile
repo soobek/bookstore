@@ -6,6 +6,12 @@ gem 'coffee-rails', '~> 4.2', '>= 4.2.2'
 
 gem 'pg'
 
+gem 'searchkick', '~> 2.4'
+
+gem 'elasticsearch', '~> 6.0'
+
+gem 'carrierwave', '~> 1.2', '>= 1.2.1'
+
 gem 'actionpack', '~> 5.1', '>= 5.1.3'
 
 gem 'activerecord', '~> 5.1', '>= 5.1.3'

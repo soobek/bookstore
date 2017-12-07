@@ -1,0 +1,11 @@
+RVM
+
+rvm install 2.4.2
+git comments
+
+private/protected
+
+zobaczyc gem figaro do zmiennych globarnych
+
+gem simple form
+

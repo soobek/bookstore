@@ -4,6 +4,8 @@ class Book < ApplicationRecord
     
 		has_attached_file :picture,
 					 :styles => {:medium => "300x300>", :thumb => "50x50>" }
+
+    mount_uploader :bookfile, BookfileUploader
 	
 	validates :title,
   	:presence => {:in => true, :message => " can't be empty!"},
@@ -22,4 +24,11 @@ class Book < ApplicationRecord
   validates_attachment_size :picture, less_than: 1.megabytes, 
   	:message => '--- za duży plik max rozmiar to 1 MB ----'
 
+def self.search(search)
+    if search
+      where("title like ?", "%"+search+"%")
+    else
+      order('title ASC')
+    end
+end
 end

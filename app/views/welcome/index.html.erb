@@ -17,5 +17,37 @@
 			<% end %>
 		</div>
 	</div>
-	
+	<div class="jumbotron">
+
+<%= form_tag welcome_index_path, method: :get do %>
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Search",:name => nil %>
+<% end %>
+
+
+	<table class="table">
+			<tr>
+				<th>Image</th>
+				<th>ID</th>
+				<th>Category</th>
+				<th>Title</th>
+				<th>Author</th>
+				<th>Description</th>
+				<th>Pages</th>
+				<th>Text</th>
+			</tr>
+			<% @books.each do |u| %> 
+			<tr>
+			  <td><%= image_tag(u.picture.url, :class => "featurette-image img-responsive")%><p><%= link_to("download", u.bookfile.url, :class => 'btn btn-xs btn-warning')  if u.bookfile? %></p></td>
+			  <td><%= u.id %></td>
+			  <td><%= u.category.name %></td>
+			  <td><%= u.title %></td>
+			  <td><%= u.user.nick %></td>
+			  <td><%= u.description %></td>
+			  <td><%= u.pages %></td>
+			  <td><%= u.text %></td>
+			</tr>
+			<% end %>
+		</table>
+	</div>
 </div>

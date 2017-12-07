@@ -1,5 +1,5 @@
 <tr>  
-    <td><%= image_tag(u.picture.url, :class => "featurette-image img-responsive")%></td>
+    <td><%= image_tag(u.picture.url, :class => "featurette-image img-responsive")%><p><%= link_to("download", u.bookfile.url, :class => 'btn btn-xs btn-warning')  if u.bookfile? %></p></td>
     <td><%= u.id %></td>
     <td><%= u.category.name %></td>
     <td><%= u.title %></td>
