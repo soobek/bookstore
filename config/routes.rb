@@ -2,14 +2,15 @@ Rails.application.routes.draw do
   
   devise_for :users, controllers: {sessions: 'users/sessions'}
   
-  resources :books, only: [:index, :new, :create, :update, :edit, :destroy]
+  resources :books, only: [:index, :show, :new, :create, :update, :edit, :destroy]
   resources :categories, only: [:index, :new, :create, :update, :edit, :destroy]
   resources :users, only:[:index, :update, :edit, :destroy]
   resources :user_panel, only: [:index]
   resources :admin_panel, only: [:index]
+  resources :welcome, only: [:index, :show, :search]
 
-  get 'welcome/search'
-  get 'welcome/index'
+  #get 'welcome/search'
+  #et 'welcome/index'
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

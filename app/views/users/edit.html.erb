@@ -1,36 +1,28 @@
-
 <h2>Edit <%= @user.email %></h2>
-
-      <%= form_for(@user) do |f| %>
-        
-      <div class="field">
-          <%= f.label :first_name %><br />
-          <%= f.text_field :first_name %>
-        </div>
-
-        <div class="field">
-          <%= f.label :last_name %><br />
-          <%= f.text_field :last_name %>
-        </div>
-
-        <div class="field">
-          <%= f.label :nick %><br />
-          <%= f.text_field :nick %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :user_role %><br />
-          <%= f.select :user_role, User.user_roles.keys, User.user_roles %>
-        </div>
-
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true %>
-        </div>
-     
-        </br>
-        <div class="actions">
-          <p><%= f.submit "Update", :class => 'btn btn-warning btn' %></p>
-          <p><%= link_to "Back", users_path, :class => 'btn btn-dark btn-sm' %></p>
-        </div>
-      <% end %>
+<%= form_for(@user) do |f| %>
+<div class="field">
+  <%= f.label :first_name %><br />
+  <%= f.text_field :first_name %>
+</div>
+<div class="field">
+  <%= f.label :last_name %><br />
+  <%= f.text_field :last_name %>
+</div>
+<div class="field">
+  <%= f.label :nick %><br />
+  <%= f.text_field :nick %>
+</div>
+<div class="field">
+  <%= f.label :user_role %><br />
+  <%= f.select :user_role, User.user_roles.keys, User.user_roles %>
+</div>
+<div class="field">
+  <%= f.label :email %><br />
+  <%= f.email_field :email, autofocus: true %>
+</div>
+</br>
+<div class="actions">
+  <p><%= f.submit "Update", :class => 'btn btn-warning btn' %></p>
+  <p><%= link_to "Back", users_path, :class => 'btn btn-dark btn-sm' %></p>
+</div>
+<% end %>

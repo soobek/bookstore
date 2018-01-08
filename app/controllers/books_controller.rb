@@ -5,28 +5,32 @@ layout 'admin'
   before_action :authenticate_user!
 
   def index
-  	@books = Book.search(params[:search])
+    @books = Book.search(params[:search])
     #@books = Book.order('title ASC')
-  	@user_books = current_user.books.search(params[:search])
+    @user_books = current_user.books.search(params[:search])
+  end
+
+  def show
+    @book = Book.find(params[:id])
   end
 
   def new
-  	@book = Book.new()
-  	@category = Category.order('name ASC')
+    @book = Book.new()
+    @category = Category.order('name ASC')
   end
 
-  def create	
-  	@book = current_user.books.new(book_params) # include current_user
+  def create
+    @book = current_user.books.new(book_params) # include current_user
     if @book.save
       flash[:notice] = "Book created."
       redirect_to new_book_path, :user_id => current_user.id
     else
-    	flash[:alert] = @book.errors.full_messages.to_sentence
-    	@book = Book.new()
-    	@category = Category.order('name ASC')
+      flash[:alert] = @book.errors.full_messages.to_sentence
+      @book = Book.new()
+      @category = Category.order('name ASC')
       render('new')
     end
-
+  
   end
 
   def edit
@@ -40,17 +44,17 @@ layout 'admin'
       flash[:notice] = "Book updated."
       redirect_to books_path
     else
-    	flash[:alert] = @book.errors.full_messages.to_sentence
-    	@book = Book.find(params[:id])
-    	@category = Category.order('name ASC')      
+      flash[:alert] = @book.errors.full_messages.to_sentence
+      @book = Book.find(params[:id])
+      @category = Category.order('name ASC')      
       render('edit')
     end
   end
 
   def destroy
-  		book = Book.find(params[:id]).destroy
-      flash[:notice] = "Book deleted."
-      redirect_to(:action => 'index')
+    book = Book.find(params[:id]).destroy
+    flash[:notice] = "Book deleted."
+    redirect_to(:action => 'index')
   end
 
 private

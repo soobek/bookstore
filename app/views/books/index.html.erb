@@ -1,38 +1,38 @@
 <div class="container">
-<h1>User Panel</h1>
+  <h1>List of yours books:</h1>
 
-<% if current_user.user_role == "admin" %>
-<p class="counter"><%= @books.size %> BOOKS</p>
-<%else%>
-<p class="counter"><%= @user_books.size %> BOOKS</p>
-<%end%>
+  <% if current_user.user_role == "admin" %>
+    <p class="counter"><%= @books.size %> BOOKS</p>
+  <%else%>
+    <p class="counter"><%= @user_books.size %> BOOKS</p>
+  <%end%>
+  <p><%= link_to("New", new_book_path, :class => 'btn btn-xs btn-success') %>
+  </p>
+  <%= form_tag books_path, method: :get do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search",:name => nil %>
+  <% end %>
 
-<%= form_tag books_path, method: :get do %>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag "Search",:name => nil %>
-<% end %>
-
-<table class="table">
-	<tr>
-	<th>Image</th>
-	<th>ID</th>
-	<th>Category</th>
-	<th>Title</th>
-	<th>Author</th>
-	<th>Description</th>
-	<th>Pages</th>
-	<th>Text</th>
-</tr>
-	<% if current_user.user_role == "admin" %>
-		<% @books.each do |u| %>
-		<%= render "form1",u: u %>
-		<%end%>
-	<%else%>
-		<% @user_books.each do |u| %>
-		<%= render "form1",u: u %>
-		<%end%>
-	<%end%>
-</table>
-
+  <table class="table">
+    <tr>
+      <th>Image</th>
+      <th>ID</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Description</th>
+      <th>Pages</th>
+      <th>Text</th>
+    </tr>
+    <% if current_user.user_role == "admin" %>
+      <% @books.each do |u| %>
+      <%= render "form1",u: u %>
+      <%end%>
+    <%else%>
+      <% @user_books.each do |u| %>
+      <%= render "form1",u: u %>
+      <%end%>
+    <%end%>
+  </table>
 </div>
 

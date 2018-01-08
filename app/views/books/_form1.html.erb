@@ -1,13 +1,24 @@
-<tr>  
-    <td><%= image_tag(u.picture.url, :class => "featurette-image img-responsive")%><p><%= link_to("download", u.bookfile.url, :class => 'btn btn-xs btn-warning')  if u.bookfile? %></p></td>
-    <td><%= u.id %></td>
-    <td><%= u.category.name %></td>
-    <td><%= u.title %></td>
-    <td><%= u.user.nick %></td>
-    <td><%= u.description %></td>
-    <td><%= u.pages %></td>
-    <td><%= u.text %></td>
-    <td><%= link_to("Edit", edit_book_path(u), :class => 'btn btn-xs btn-primary') %>
-    <%= link_to("Delete", book_path(u), method: :delete, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-xs btn-danger') %>
-    </td>
+<tr>
+  <td>
+    <% if !u.picture? %>
+      <%= image_tag 'book.png', :class => "featurette-image img-responsive"%>
+    <% else %>
+      <%= image_tag(u.picture.url,
+      :class => "featurette-image img-responsive")%>
+    <% end %>
+    <p><%= link_to("download", u.bookfile.url,
+    :class => 'btn btn-xs btn-warning')  if u.bookfile? %></p></td>
+  <td><%= u.id %></td>
+  <td><%= u.category.name %></td>
+  <td><%= u.title %></td>
+  <td><%= u.user.nick %></td>
+  <td><%= u.description %></td>
+  <td><%= u.pages %></td>
+  <td><%= u.text %></td>
+  <td><%= link_to("Show", book_path(u), :class => 'btn btn-warning')%>
+      <%= link_to("Edit", edit_book_path(u),
+      :class => 'btn btn-xs btn-primary') %>
+  <%= link_to("Delete", book_path(u), method: :delete,
+  :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-xs btn-danger') %>
+  </td>
 </tr>

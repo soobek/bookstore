@@ -1,14 +1,10 @@
 <div class="hero-unit">
-<h1>Edit category:</h1>
-
-<%= form_for(@category) do |f| %>
-
-<%= render(:partial => "form", :locals => {:f => f}) %>
-
-<div class="buttons_down">
-	<%= link_to("Back", categories_path, :class => 'btn btn-warning')%>
-	<%= submit_tag("Update", :class => 'btn  btn-primary') %>
-</div>
-
-<% end %>
+  <h1>Edit category:</h1>
+  <%= form_for(@category) do |f| %>
+  <%= render(:partial => "form", :locals => {:f => f}) %>
+  <div class="buttons_down">
+    <%= link_to("Back", categories_path, :class => 'btn btn-warning')%>
+    <%= submit_tag("Update", :class => 'btn  btn-primary') %>
+  </div>
+  <% end %>
 </div>

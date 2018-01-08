@@ -3,18 +3,21 @@
 <p><%= link_to("New", new_category_path, :class => 'btn btn-xs btn-success') %>
 </p>
 <table class="table">
-	<tr>
-	<th>ID</th>
-	<th>Name</th>
-	<th>Action</th>
-	</tr>
-	<% @category.each do |u| %>
-	<tr>	
-		<td><%= u.id %></td>
-		<td><%= u.name %></td>
-		<td><%= link_to("Edit", edit_category_path(u), :class => 'btn btn-xs btn-primary') %>
-		<%= link_to("Delete", category_path(u), method: :delete, :data => {:confirm => 'Are you sure?'}, :class => 'btn btn-xs btn-danger') %>
-		</td>
-	</tr>
-	<%end%>
+  <tr>
+  <th>ID</th>
+  <th>Name</th>
+  <th>Action</th>
+  </tr>
+  <% @category.each do |u| %>
+  <tr>  
+    <td><%= u.id %></td>
+    <td><%= u.name %></td>
+    <td><%= link_to("Edit", edit_category_path(u),
+    :class => 'btn btn-xs btn-primary') %>
+    <%= link_to("Delete", category_path(u), method: :delete,
+    :data => {:confirm => 'Are you sure?'},
+    :class => 'btn btn-xs btn-danger') %>
+    </td>
+  </tr>
+  <%end%>
 </table>
