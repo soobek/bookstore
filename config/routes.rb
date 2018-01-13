@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users, controllers: {sessions: 'users/sessions'}
   
   resources :books, only: [:index, :show, :new, :create, :update, :edit, :destroy]

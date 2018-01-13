@@ -15,41 +15,49 @@
  */
 
 .menu {
-	margin-left: 1em;
-	margin-right: 1em;
-	width: auto;
-	text-align: center;
-	background-color: gray;
-	padding: 0.5em;
+  margin-left: 1em;
+  margin-right: 1em;
+  width: auto;
+  text-align: center;
+  background-color: gray;
+  padding: 0.5em;
 }
 .user_nick {
-	color: white!important;
-	font-weight: bold;
+  color: white!important;
+  font-weight: bold;
 }
 .alert {
-	margin-top: 1em;
+  margin-top: 1em;
 }
 .main_page {
-	background-image: url("books-2463779_640.jpg");
-	position: absolute;
-	left: 0;
-	min-width: 100%;
-	min-height: 100%;
+  background-image: url("books-2463779_640.jpg");
+  position: absolute;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 .jumbotron {
-	margin-top: 5%;
-	text-align: center;
+  margin-top: 5%;
+  text-align: center;
 }
 .buttons_down {
-	text-align: center;
+  text-align: center;
 }
 .counter {
-	text-align: right;
+  text-align: right;
 }
 .featurette-image {
-	max-width: 100px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 2px;
-	float: : center;
+  max-width: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2px;
+  float: : center;
+}
+.rate_score {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 61px;
+}
+.th_center {
+  text-align: center!important;
 }

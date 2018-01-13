@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'ratyrate'
+
 gem 'devise', '~> 4.3'
 
 gem 'coffee-rails', '~> 4.2', '>= 4.2.2'

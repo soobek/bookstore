@@ -24,6 +24,8 @@ class Book < ApplicationRecord
   validates_attachment_size :picture, less_than: 1.megabytes, 
     :message => '--- za duży plik max rozmiar to 1 MB ----'
 
+ratyrate_rateable 'original_score'
+
 def self.search(search)
   if search
     where("title like ?", "%"+search+"%")

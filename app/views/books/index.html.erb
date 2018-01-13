@@ -15,14 +15,14 @@
 
   <table class="table">
     <tr>
-      <th>Image</th>
-      <th>ID</th>
-      <th>Category</th>
-      <th>Title</th>
-      <th>Author</th>
-      <th>Description</th>
-      <th>Pages</th>
-      <th>Text</th>
+      <th class="th_center">Image</th>
+      <th class="th_center">ID</th>
+      <th class="th_center">Category</th>
+      <th class="th_center">Title</th>
+      <th class="th_center">Author</th>
+      <th class="th_center">Description</th>
+      <th class="th_center">Pages</th>
+      <th class="th_center">Text</th>
     </tr>
     <% if current_user.user_role == "admin" %>
       <% @books.each do |u| %>
