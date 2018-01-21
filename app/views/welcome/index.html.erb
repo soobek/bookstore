@@ -22,28 +22,25 @@
         <th class="th_center">Your rating</th>
         <%end%>
         <th class="th_center">Image</th>
-        <th class="th_center">ID</th>
         <th class="th_center">Category</th>
         <th class="th_center">Title</th>
         <th class="th_center">Author</th>
         <th class="th_center">Description</th>
-        <th class="th_center">Pages</th>
-        <th class="th_center">Text</th>
       </tr>
       <% @books.each do |u| %> 
       <tr>
-        <td>
+        <td class="td-width-small">
               <div class="rate_score"><%= rating_for u, "original_score",
               disable_after_rate: true, imdb_avg: true, readonly: true%></div>
               <%= rating_for u, "original_score", readonly: true%>
               Voters: <%= u.rates("original_score").count %>
         </td>
           <% if current_user %>
-          <td>
+          <td class="td-width-small">
             Your rate <%= rating_for_user u, current_user, "original_score"%>
           </td>
           <% end %>
-        <td><% if !u.picture? %>
+        <td class="td-width-small"><% if !u.picture? %>
             <%= image_tag 'book.png',
             :class => "featurette-image img-responsive"%>
             <% else %>
@@ -51,14 +48,12 @@
           :class => "featurette-image img-responsive")%>
           <% end %><p><%= link_to("download", u.bookfile.url,
           :class => 'btn btn-xs btn-warning')  if u.bookfile? %></p></td>
-        <td><%= u.id %></td>
-        <td><%= u.category.name %></td>
-        <td><%= u.title %></td>
-        <td><%= u.user.nick %></td>
-        <td><%= u.description %></td>
-        <td><%= u.pages %></td>
-        <td><%= u.text %></td>
-        <td><%= link_to("Show", welcome_path(u),
+        <td class="td-width-small"><%= u.category.name %></td>
+        <td class="td-width-small"><%= u.title %></td>
+        <td class="td-width-small"><%= u.user.nick %></td>
+        <td class="td-width-small">
+          <%= u.description.truncate(250,separator: /\s/) %></td>
+        <td><%= link_to("Show", book_path(u),
         :class => 'btn btn-warning')%></td>
       </tr>
       <% end %>

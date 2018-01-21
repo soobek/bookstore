@@ -9,7 +9,8 @@ class Book < ApplicationRecord
   
   validates :title,
     :presence => {:in => true, :message => " can't be empty!"},
-    :length => {:within => 4..250, :message => " length should be between 4 and 25 characters!"}
+    :length => {:within => 4..250,
+    :message => " length should be between 4 and 25 characters!"}
 
   validates :description,
     :presence => {:in => true, :message => " can't be empty!"},

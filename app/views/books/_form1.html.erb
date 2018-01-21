@@ -12,7 +12,7 @@
   <td><%= u.category.name %></td>
   <td><%= u.title %></td>
   <td><%= u.user.nick %></td>
-  <td><%= u.description %></td>
+  <td><%= u.description.truncate(250,separator: /\s/) %></td>
   <td><%= u.pages %></td>
   <td><%= u.text %></td>
   <td><%= link_to("Show", book_path(u), :class => 'btn btn-warning')%>

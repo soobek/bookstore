@@ -13,10 +13,28 @@
  *= require_tree .
  *= require_self
  */
-
+.td-width-small{
+  max-width: 3em;
+}
+.img-big {
+  width: 25%;
+}
+.td-title {
+  background-color: lightseagreen;
+}
+.h-position-center{
+  text-align: center;
+  background-color: lightseagreen;
+  margin-bottom: 0;
+  margin-top: 0.2em;
+}
+.td-position-center{
+  text-align: center;
+  background-color: lightgray;
+}
 .menu {
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 0;
+  margin-right: 0m;
   width: auto;
   text-align: center;
   background-color: gray;

@@ -1,19 +1,29 @@
 <div class="hero-unit">
-  <h1><%=@book.title%></h1>
-  <table class="table">
-    <tr><td>Image</td><td><%=image_tag(@book.picture,
-     :class => "featurette-image img-responsive")%></td></tr>  
-    <tr><td>ID</td><td><%=@book.id%></td></tr>
-    <tr><td>Category</td><td><%=@book.category.name%></td></tr>
-    <tr><td>Title</td><td><%=@book.title%></td></tr>
-    <tr><td>Author</td><td><%=@book.user.nick%></td></tr>
-    <tr><td>Description</td><td><%=@book.description%></td></tr>
-    <tr><td>Pages</td><td><%=@book.pages%></td></tr>
-    <tr><td>Text</td><td><%=@book.text%></td></tr>
-    <tr><td>File</td><td><%= link_to(@book.bookfile_identifier,
-     @book.bookfile.url) %></td></tr>
-  </table>
-  <div class="buttons_down">
-    <%= link_to("Back", books_path, :class => 'btn btn-warning')%>
-  </div>
+<h1 class="h-position-center"><%=@book.title%></h1>
+<table class="table">
+  <tr><td class="td-title">Image</td><td class="td-position-center">
+    <%=image_tag(@book.picture,
+  :class => "img-big")%></td></tr>
+  <tr><td class="td-title">ID</td><td class="td-position-center">
+    <%=@book.id%></td></tr>
+  <tr><td class="td-title">Category</td><td class="td-position-center">
+    <%=@book.category.name%></td></tr>
+  <tr><td class="td-title">Title</td><td class="td-position-center">
+    <%=@book.title%></td></tr>
+  <tr><td class="td-title">Author</td><td class="td-position-center">
+    <%=@book.user.nick%></td></tr>
+  <tr><td class="td-title">Description</td><td class="td-position-center">
+    <%=@book.description%></td></tr>
+  <tr><td class="td-title">Pages</td><td class="td-position-center">
+    <%=@book.pages%></td></tr>
+  <tr><td class="td-title">Text</td><td class="td-position-center">
+    <%=@book.text%></td></tr>
+  <tr><td class="td-title">File</td><td class="td-position-center">
+    <%= link_to(@book.bookfile_identifier,
+  @book.bookfile.url) %></td></tr>
+</table>
+<div class="buttons_down position-center">
+  <%= link_to("Back", root_path, :class => 'btn btn-warning')%>
+</div>
+</br>
 </div>

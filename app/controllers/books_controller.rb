@@ -2,7 +2,7 @@ class BooksController < ApplicationController
 
 layout 'admin'
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:show]
 
   def index
     @books = Book.search(params[:search])
